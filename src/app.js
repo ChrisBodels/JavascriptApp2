@@ -9,6 +9,53 @@ import Games from './gameList.js';
   *
   */
 
+
+var express = require('express');
+var app = express();
+var bodyParser = require('body-parser');
+
+
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+
+var port = process.env.PORT || 4000;
+ 
+
+var router = express.Router();
+
+
+router.get('/', function(req, res){
+  res.json({message: 'Welcome to my API' });
+});
+
+
+app.use('/api', router);
+
+app.listen(port);
+console.log('Starting app on port ' + port);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var games = Games;
 var ownedGames = [];
 var comments = [];
